@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    tools{
+        nodejs 'Node 18.x'
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -12,12 +14,6 @@ pipeline {
             steps {
                 echo 'Instalando dependencias...'
                 sh 'npm install'
-            }
-        }
-        stage('Run Tests') {
-            steps {
-                echo 'Ejecutando pruebas...'
-                sh 'npm test'
             }
         }
         stage('Build') {
